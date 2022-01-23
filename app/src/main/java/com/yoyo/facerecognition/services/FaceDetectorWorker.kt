@@ -90,6 +90,7 @@ constructor(
         if (!prefsHelper.isAppOnForeground()) {
             //notification with the results
             NotificationHelper.getInstance(context).showSummeryNotification(getSummeryText(context, facesCounter, totalCounter))
+            SharedPrefsHelper.getInstance(context).setNotificationShowed(true)
         }
         faceDetector.release()
         return Result.success()

@@ -35,4 +35,12 @@ class SharedPrefsHelper private constructor(context: Context) {
     fun getNumberOfTotalPics(): Int {
         return sharedPreferences.getInt(NUM_OF_TOTAL_PICS, -1)
     }
+
+    fun isNotificationShowed(): Boolean {
+        return sharedPreferences.getBoolean(NOTIFICATION_SHOWED, false)
+    }
+
+    fun setNotificationShowed(value: Boolean) {
+        sharedPreferences.edit().putBoolean(NOTIFICATION_SHOWED, value).commit()
+    }
 }

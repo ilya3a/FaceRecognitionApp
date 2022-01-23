@@ -66,7 +66,10 @@ class MainActivity : AppCompatActivity() {
         mainActivityViewModel.workIsFinishedLiveData().observe(this, { workIsFinished ->
             if (workIsFinished) {
                 val sharedPrefsHelper = SharedPrefsHelper.getInstance(this)
-                showDialog(sharedPrefsHelper.getNumberOfFacePics(), sharedPrefsHelper.getNumberOfTotalPics())
+                if (!sharedPrefsHelper.isNotificationShowed()) {
+                    showDialog(sharedPrefsHelper.getNumberOfFacePics(), sharedPrefsHelper.getNumberOfTotalPics())
+                    sharedPrefsHelper.setNotificationShowed(false)
+                }
             }
         })
     }

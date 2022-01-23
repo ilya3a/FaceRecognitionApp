@@ -9,6 +9,7 @@ const val APP_STATE = "appState"
 const val NUM_OF_FACE_PICS = "numOfFacePics"
 const val NUM_OF_TOTAL_PICS = "numOfTotalPics"
 const val PROGRESS = "progress"
+const val NOTIFICATION_SHOWED = "notifShowed"
 
 
 fun getSummeryText(context: Context, numOfFacePics: Int, total: Int): String {
