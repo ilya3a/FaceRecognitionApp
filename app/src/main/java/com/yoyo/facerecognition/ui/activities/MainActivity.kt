@@ -68,8 +68,8 @@ class MainActivity : AppCompatActivity() {
                 val sharedPrefsHelper = SharedPrefsHelper.getInstance(this)
                 if (!sharedPrefsHelper.isNotificationShowed()) {
                     showDialog(sharedPrefsHelper.getNumberOfFacePics(), sharedPrefsHelper.getNumberOfTotalPics())
-                    sharedPrefsHelper.setNotificationShowed(false)
                 }
+                    sharedPrefsHelper.setNotificationShowed(false)
             }
         })
     }
