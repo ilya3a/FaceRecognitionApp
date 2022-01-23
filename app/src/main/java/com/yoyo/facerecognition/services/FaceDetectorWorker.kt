@@ -9,6 +9,7 @@ import androidx.core.util.size
 import androidx.work.*
 import com.google.android.gms.vision.Frame
 import com.google.android.gms.vision.face.FaceDetector
+import com.yoyo.facerecognition.database.DatabaseRoom
 import com.yoyo.facerecognition.database.misc.PicSection
 import com.yoyo.facerecognition.repo.IPicInfoRepo
 import com.yoyo.facerecognition.repo.PicInfoRepo
@@ -23,7 +24,7 @@ constructor(
 ) :
     Worker(context, workerParameters) {
 
-    lateinit var repo: IPicInfoRepo
+    lateinit var picInfoRepo: IPicInfoRepo
     var facesCounter = 0
     var totalCounter = 0
 
@@ -50,14 +51,14 @@ constructor(
 
     @SuppressLint("RestrictedApi")
     override fun doWork(): Result {
-        repo = PicInfoRepo(context)
+        picInfoRepo = PicInfoRepo(context, DatabaseRoom.getDatabase(context).picInfoDao())
 
         val prefsHelper = SharedPrefsHelper.getInstance(context)
 
         val faceDetector = FaceDetector.Builder(context)
             .build()
 
-        val listOfPics = repo.getAllPicInfo()
+        val listOfPics = picInfoRepo.getAllPicInfo()
 
         listOfPics.forEach {
             val options = BitmapFactory.Options()
@@ -83,7 +84,7 @@ constructor(
             ++totalCounter
             setProgressAsync(Data.Builder().putInt(PROGRESS, ((totalCounter / listOfPics.size) * 100)).build())
         }
-        repo.addPicturesToDB(listOfPics)
+        picInfoRepo.addPicturesToDB(listOfPics)
         prefsHelper.setNumberOfFacePics(facesCounter)
         prefsHelper.setNumberOfTotalPics(totalCounter)
         if (!prefsHelper.isAppOnForeground()) {

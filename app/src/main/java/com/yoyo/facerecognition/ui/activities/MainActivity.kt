@@ -55,8 +55,8 @@ class MainActivity : AppCompatActivity() {
             if (showProgress) {
                 //block detect button
                 binding.detectButton.isEnabled = false
-                mainActivityViewModel.progressLiveData().observe(this,{progress->
-                    binding.detectButton.text = StringBuffer(this.getString(R.string.loading)+" $progress%")
+                mainActivityViewModel.progressLiveData().observe(this, { progress ->
+                    binding.detectButton.text = StringBuffer(this.getString(R.string.loading) + " $progress%")
                 })
             } else {
                 binding.detectButton.isEnabled = true
@@ -104,9 +104,9 @@ class MainActivity : AppCompatActivity() {
     private fun normalOperation() {
         val vpAdapter = VPAdapter(supportFragmentManager, lifecycle)
 
-        val fragment1=AllPicsFragment()
-        val fragment2=FacePicsFragment()
-        val fragment3=NonFacesPicsFragment()
+        val fragment1 = AllPicsFragment()
+        val fragment2 = FacePicsFragment()
+        val fragment3 = NonFacesPicsFragment()
 
         vpAdapter.addFragment(fragment1)
         vpAdapter.addFragment(fragment2)

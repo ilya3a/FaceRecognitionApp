@@ -4,7 +4,6 @@ import android.content.Context
 import com.yoyo.facerecognition.R
 
 
-
 const val APP_PREFS = "appPrefs"
 const val APP_STATE = "appState"
 const val NUM_OF_FACE_PICS = "numOfFacePics"

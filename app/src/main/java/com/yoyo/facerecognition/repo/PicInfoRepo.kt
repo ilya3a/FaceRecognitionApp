@@ -3,9 +3,9 @@ package com.yoyo.facerecognition.repo
 import android.content.Context
 import android.os.Environment
 import com.yoyo.facerecognition.database.DatabaseRoom
+import com.yoyo.facerecognition.database.dao.PicInfoDao
 import com.yoyo.facerecognition.database.misc.PicSection
 import com.yoyo.facerecognition.database.models.PicInfoDataModel
-import com.yoyo.facerecognition.util.SingletonHolder
 import kotlinx.coroutines.flow.Flow
 import java.io.File
 import java.util.*
@@ -13,14 +13,9 @@ import javax.inject.Inject
 
 class PicInfoRepo
 @Inject
-constructor(private val context: Context) : IPicInfoRepo {
-    companion object{
-        private const val APP_PREFS = "app_prefs"
-    }
+constructor(private val context: Context,private val picInfoDao:PicInfoDao) : IPicInfoRepo {
 
 
-    private val sharedPref = context.getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE)
-    private val picInfoDao = DatabaseRoom.getDatabase(context).picInfoDao()
 
     override fun getAllPicInfoFlow(): Flow<List<PicInfoDataModel>> {
         val data = picInfoDao.getPicInfoList()

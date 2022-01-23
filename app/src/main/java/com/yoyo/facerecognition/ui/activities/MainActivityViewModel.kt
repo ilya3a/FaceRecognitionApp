@@ -23,6 +23,7 @@ class MainActivityViewModel(val context: Application) : AndroidViewModel(context
     fun workIsFinishedLiveData(): LiveData<Boolean> {
         return _workIsFinishedLiveData
     }
+
     fun progressLiveData(): LiveData<Int> {
         return _progressLiveData
     }
@@ -43,7 +44,7 @@ class MainActivityViewModel(val context: Application) : AndroidViewModel(context
                 } else {
                     showProgress = true
                 }
-                    _progressLiveData.postValue(workInfo.progress.getInt(PROGRESS,0))
+                _progressLiveData.postValue(workInfo.progress.getInt(PROGRESS, 0))
 
                 _showProgressLiveData.postValue(showProgress)
             })

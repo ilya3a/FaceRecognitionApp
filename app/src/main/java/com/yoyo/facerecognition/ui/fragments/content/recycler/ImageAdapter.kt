@@ -12,7 +12,8 @@ class ImageAdapter(var mList: ArrayList<PicInfoDataModel>) : RecyclerView.Adapte
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return PicInfoViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_image, parent, false))
+                .inflate(R.layout.item_image, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

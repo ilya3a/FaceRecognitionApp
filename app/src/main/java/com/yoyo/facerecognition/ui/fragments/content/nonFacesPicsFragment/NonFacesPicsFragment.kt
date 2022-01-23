@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.yoyo.facerecognition.databinding.NonFacesPicsFragmentBinding
-import com.yoyo.facerecognition.ui.activities.fragments.nonFacesPicsFragment.NonFacesPicsViewModel
 import com.yoyo.facerecognition.ui.fragments.content.ContentFragment
 import com.yoyo.facerecognition.ui.fragments.content.recycler.ImageAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
+
 @AndroidEntryPoint
 class NonFacesPicsFragment : ContentFragment() {
 

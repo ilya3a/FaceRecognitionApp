@@ -1,10 +1,11 @@
 package com.yoyo.facerecognition.ui.fragments.content.facePicsFragment
 
-import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.yoyo.facerecognition.database.models.PicInfoDataModel
 import com.yoyo.facerecognition.repo.IPicInfoRepo
-import com.yoyo.facerecognition.repo.PicInfoRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -15,12 +16,10 @@ import javax.inject.Inject
 @HiltViewModel
 class FacePicsViewModel
 @Inject
-    constructor(private val repo:IPicInfoRepo) : ViewModel() {
+constructor(private val picInfoRepo: IPicInfoRepo) : ViewModel() {
 
 
     private val _facesListLiveData = MutableLiveData<List<PicInfoDataModel>>()
-
-
 
 
     fun facesListLiveData(): LiveData<List<PicInfoDataModel>> {
@@ -28,11 +27,10 @@ class FacePicsViewModel
     }
 
 
-
     @InternalCoroutinesApi
     fun getPictures() {
         viewModelScope.launch(Dispatchers.IO) {
-            repo.getFacePicInfoFlow().collect(object : FlowCollector<List<PicInfoDataModel>> {
+            picInfoRepo.getFacePicInfoFlow().collect(object : FlowCollector<List<PicInfoDataModel>> {
                 override suspend fun emit(value: List<PicInfoDataModel>) {
                     _facesListLiveData.postValue(value)
                 }

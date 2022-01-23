@@ -8,7 +8,7 @@ import com.yoyo.facerecognition.database.misc.PicSection
 data class PicInfoDataModel(
     val path: String,
     var section: PicSection = PicSection.ALL
-){
+) {
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
 }

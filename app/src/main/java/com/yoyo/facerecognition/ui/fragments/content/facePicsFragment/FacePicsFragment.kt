@@ -11,6 +11,7 @@ import com.yoyo.facerecognition.ui.fragments.content.ContentFragment
 import com.yoyo.facerecognition.ui.fragments.content.recycler.ImageAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
+
 @AndroidEntryPoint
 class FacePicsFragment : ContentFragment() {
 

@@ -20,7 +20,7 @@ class NotificationHelper private constructor(private val context: Context) {
     private val notificationManager = NotificationManagerCompat.from(context)
 
     fun showSummeryNotification(txt: String) {
-        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             createChannelId()
             val mBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
                 .setContentText(txt)
@@ -29,7 +29,7 @@ class NotificationHelper private constructor(private val context: Context) {
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_REMINDER)
             notificationManager.notify(NOTIFICATION_ID, mBuilder.build())
-        }else{
+        } else {
             val mBuilder = NotificationCompat.Builder(context)
                 .setContentText(txt)
                 .setSmallIcon(R.mipmap.ic_launcher_round)
@@ -37,7 +37,6 @@ class NotificationHelper private constructor(private val context: Context) {
                 .setCategory(NotificationCompat.CATEGORY_REMINDER)
             notificationManager.notify(NOTIFICATION_ID, mBuilder.build())
         }
-
 
 
     }
