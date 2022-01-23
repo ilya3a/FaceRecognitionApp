@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "476906685812",
+    "project_id": "face-recognition-app-5fdb4",
+    "storage_bucket": "face-recognition-app-5fdb4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476906685812:android:37ae7c0cf5536b44ee1821",
+        "android_client_info": {
+          "package_name": "com.yoyo.facerecognition"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "476906685812-qgc8v7hnv65qmrmfcgs0acnhk05h72ek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_UsXUduAf8M7CIpsuiv0mY43CXv10DJQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "476906685812-qgc8v7hnv65qmrmfcgs0acnhk05h72ek.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

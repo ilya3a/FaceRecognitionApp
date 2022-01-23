@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Face Recognition app</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="loading">Loading…</string>
+    <string name="detect">Detect</string>
+    <string name="ok">OK</string>
+    <string name="dialog_header">Face Detection Results:</string>
+    <string name="summery_detect">Detected</string>
+    <string name="summery_out_of">out of</string>
+    <string name="summery_pictures">pictures</string>
+    <string name="image">image</string>
+</resources>
