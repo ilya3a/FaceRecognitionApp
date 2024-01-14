@@ -35,7 +35,7 @@ class MainActivityViewModel(val context: Application) : AndroidViewModel(context
 
             val id = FaceDetectorWorker.scheduleOneTimeWork(context)
 
-            WorkManager.getInstance(context).getWorkInfoByIdLiveData(id).observe(lifecycleOwner, { workInfo ->
+            WorkManager.getInstance(context).getWorkInfoByIdLiveData(id).observe(lifecycleOwner) { workInfo ->
                 var showProgress = false
                 if (workInfo.state.isFinished) {
                     //notify work is finished
@@ -47,7 +47,7 @@ class MainActivityViewModel(val context: Application) : AndroidViewModel(context
                 _progressLiveData.postValue(workInfo.progress.getInt(PROGRESS, 0))
 
                 _showProgressLiveData.postValue(showProgress)
-            })
+            }
         }
 
     }

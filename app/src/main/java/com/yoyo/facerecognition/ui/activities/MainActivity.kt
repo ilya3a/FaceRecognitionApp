@@ -51,27 +51,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setObservers() {
-        mainActivityViewModel.showProgressLiveData().observe(this, { showProgress ->
+        mainActivityViewModel.showProgressLiveData().observe(this) { showProgress ->
             if (showProgress) {
                 //block detect button
                 binding.detectButton.isEnabled = false
-                mainActivityViewModel.progressLiveData().observe(this, { progress ->
+                mainActivityViewModel.progressLiveData().observe(this) { progress ->
                     binding.detectButton.text = StringBuffer(this.getString(R.string.loading) + " $progress%")
-                })
+                }
             } else {
                 binding.detectButton.isEnabled = true
                 binding.detectButton.text = this.getString(R.string.detect)
             }
-        })
-        mainActivityViewModel.workIsFinishedLiveData().observe(this, { workIsFinished ->
+        }
+        mainActivityViewModel.workIsFinishedLiveData().observe(this) { workIsFinished ->
             if (workIsFinished) {
                 val sharedPrefsHelper = SharedPrefsHelper.getInstance(this)
                 if (!sharedPrefsHelper.isNotificationShowed()) {
                     showDialog(sharedPrefsHelper.getNumberOfFacePics(), sharedPrefsHelper.getNumberOfTotalPics())
                 }
-                    sharedPrefsHelper.setNotificationShowed(false)
+                sharedPrefsHelper.setNotificationShowed(false)
             }
-        })
+        }
     }
 
     private fun showDialog(numOfFacePics: Int, total: Int) {

@@ -9,5 +9,6 @@ abstract class ContentFragment : Fragment() {
     abstract fun getPictures()
     abstract fun setObservers()
     abstract fun setRecyclerView()
+//    abstract fun getViewToDisplay()
 
 }

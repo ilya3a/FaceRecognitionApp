@@ -45,9 +45,9 @@ class NonFacesPicsFragment : ContentFragment() {
     }
 
     override fun setObservers() {
-        viewModel.nonFacesListLiveData().observe(viewLifecycleOwner, {
+        viewModel.nonFacesListLiveData().observe(viewLifecycleOwner) {
             mAdapter.updateList(it as ArrayList)
-        })
+        }
     }
 
     override fun setRecyclerView() {
